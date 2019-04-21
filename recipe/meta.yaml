@@ -1,6 +1,6 @@
 {% set name = "google-cloud-container" %}
 {% set version = "0.2.1" %}
-
+{% set data = load_setup_py_data() %}
 package:
   name: {{ name|lower }}
   version: {{ version }}
@@ -10,46 +10,77 @@ source:
   sha256: 566834ef43e79917b112e3bd2848e84cfb0f4d7b565581607e2548f5c8e5d87a
 
 build:
-  noarch: python
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --verbose"
 
 requirements:
   host:
     - python
-    - pip
+    - pip >=18.1
+    - google-api-core-grpc >=1.6.0
+    - enum34 >=1.1.6  # [py<=34]
+    - futures >=3.0.5  # [py<32]
   run:
-    - python
-    - google-api-core >=1.6.0,<2.0.0dev
-    - grpcio >=1.8.2
-    - googleapis-common-protos >=1.5.3,!=1.5.4,<2.0dev
-    - protobuf >=3.4.0
-    - google-auth >=0.4.0,<2.0dev
-    - requests >=2.18.0,<3.0.0dev
-    - setuptools >=34.0.0
-    - six >=1.10.0
-    - pytz
-    - futures >=3.0.5
+    - {{ pin_compatible('google-api-core-grpc') }}
+    - {{ pin_compatible('enum34') }}  # [py<=34]
+    - {{ pin_compatible('futures') }}  # [py<32]
 
 test:
   imports:
+    - enum
+    - google.api
+    - google.api.annotations_pb2
+    - google.api.http_pb2
+    - google.api_core.gapic_v1.client_info
+    - google.api_core.gapic_v1.config
+    - google.api_core.gapic_v1.method
+    - google.api_core.grpc_helpers
+    - google.api_core.protobuf_helpers
     - google.cloud
     - google.cloud.container_v1
     - google.cloud.container_v1.proto
+    - google.oauth2
+    - google.oauth2.service_account
+    - google.protobuf
+    - google.protobuf.empty_pb2
+    - grpc
+    - requests
 
 about:
-  home: https://github.com/googleapis/google-cloud-python/tree/master/container
-  license: Apache 2.0
-  summary: 'Google Container Engine API client library'
-
+  home: {{ data.get('url') }}
+  license: {{ data.get('license') }}
+  license_family: APACHE
+  summary: {{ data.get('description') }}
   description: |
-    Google Kubernetes Engine API:
-    The Google Kubernetes Engine API is used for building and
-    managing container based applications, powered by the
-    open source Kubernetes technology.
+    **Python Client for Google Kubernetes Engine API**
+
+    [Google Kubernetes Engine API](https://cloud.google.com/kubernetes-engine): The Google Kubernetes Engine API is used for
+    building and managing container based applications, powered by the open source
+    Kubernetes technology.
+
+    - [Client Library Documentation](https://googleapis.github.io/google-cloud-python/latest/container/index.html)
+    - [Product Documentation](https://cloud.google.com/kubernetes-engine)
+
+    **Quick Start**
+
+    In order to use this library, you first need to go through the following steps:
+
+    1. [Select or create a Cloud Platform project.](https://console.cloud.google.com/project)
+    2. [Enable billing for your project.](https://cloud.google.com/billing/docs/how-to/modify-project#enable_billing_for_a_project)
+    3. [Enable the Google Cloud Language API.](https://cloud.google.com/natural-language)
+    4. [Setup Authentication.](https://googleapis.github.io/google-cloud-python/latest/core/auth.html)
+
+    **Supported Python Versions**
+
+    Python >= 3.5
+
+    **Deprecated Python Versions**
+
+    Python == 2.7. Python 2.7 support will be removed on January 1, 2020.
+
 
   doc_url: https://googleapis.github.io/google-cloud-python/latest/container/index.html
-  dev_url: https://github.com/googleapis/google-cloud-python
+  dev_url: https://github.com/googleapis/google-cloud-python/tree/master/container
 
 extra:
   recipe-maintainers:
