@@ -1,6 +1,6 @@
 {% set name = "google-cloud-container" %}
 {% set version = "0.2.1" %}
-{% set data = load_setup_py_data() %}
+
 package:
   name: {{ name|lower }}
   version: {{ version }}
@@ -47,10 +47,10 @@ test:
     - requests
 
 about:
-  home: {{ data.get('url') }}
-  license: {{ data.get('license') }}
+  home: https://github.com/googleapis/google-cloud-python/tree/master/container
+  license: Apache 2.0
   license_family: APACHE
-  summary: {{ data.get('description') }}
+  summary: 'Google Container Engine API client library'
   description: |
     **Python Client for Google Kubernetes Engine API**
 
