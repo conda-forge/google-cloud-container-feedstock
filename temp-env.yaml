@@ -1,0 +1,8 @@
+channels:
+  - defaults
+  - yeti-coolers
+  - conda-forge
+dependencies:
+  - python==3.7
+  - google-api-core-grpc>=1.6.0
+
