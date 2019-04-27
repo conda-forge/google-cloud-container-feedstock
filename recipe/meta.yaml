@@ -10,8 +10,8 @@ source:
   sha256: 566834ef43e79917b112e3bd2848e84cfb0f4d7b565581607e2548f5c8e5d87a
 
 build:
-  number: 1
-  script: "{{ PYTHON }} -m pip install . --no-deps  --ignore-installed --verbose"
+  number: 2
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --verbose"
 
 requirements:
   host:
@@ -77,7 +77,6 @@ about:
     **Deprecated Python Versions**
 
     Python == 2.7. Python 2.7 support will be removed on January 1, 2020.
-
 
   doc_url: https://googleapis.github.io/google-cloud-python/latest/container/index.html
   dev_url: https://github.com/googleapis/google-cloud-python/tree/master/container
