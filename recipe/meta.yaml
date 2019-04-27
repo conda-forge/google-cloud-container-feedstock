@@ -12,6 +12,7 @@ source:
 build:
   number: 2
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --verbose"
+  skip: True  # [win and vc<14]
 
 requirements:
   host:
@@ -21,7 +22,6 @@ requirements:
     - enum34 >=1.1.6  # [py2k]
     - futures >=3.0.5  # [py2k]
   run:
-    - python
     - google-api-core-grpc
     - enum34  # [py2k]
     - futures  # [py2k]
