@@ -15,7 +15,7 @@ build:
 
 requirements:
   host:
-    - python
+    - python >=2.7
     - pip >=18.1
     - google-api-core-grpc >=1.6.0
     - enum34 >=1.1.6  # [py2k]
