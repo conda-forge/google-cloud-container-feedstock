@@ -18,12 +18,12 @@ requirements:
     - python
     - pip >=18.1
     - google-api-core-grpc >=1.6.0
-    - enum34 >=1.1.6  # [py<=34]
-    - futures >=3.0.5  # [py<32]
+    - enum34 >=1.1.6  # [py2k]
+    - futures >=3.0.5  # [py2k]
   run:
     - {{ pin_compatible('google-api-core-grpc') }}
-    - {{ pin_compatible('enum34') }}  # [py<=34]
-    - {{ pin_compatible('futures') }}  # [py<32]
+    - {{ pin_compatible('enum34') }}  # [py2k]
+    - {{ pin_compatible('futures') }}  # [py2k]
 
 test:
   imports:
