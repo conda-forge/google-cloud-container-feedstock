@@ -33,7 +33,9 @@ Python >= 3.5
 
 **Deprecated Python Versions**
 
-Python == 2.7. Python 2.7 support will be removed on January 1, 2020.
+Python == 2.7
+- Python 2.7 support will be removed on January 1, 2020.
+- protobuf does not support Visual C++ 2008, windows py27 package not available
 
 
 Current build status
@@ -122,6 +124,7 @@ Current build status
       </details>
     </td>
   </tr>
+![ppc64le disabled](https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg)
 </table>
 
 Current release info
