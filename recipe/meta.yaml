@@ -15,9 +15,6 @@ build:
   skip: True  # [win and vc<14]
 
 requirements:
-  build:
-    - {{ compiler('c') }}     # [not win]
-    - {{ compiler('cxx') }}   # [not win]
   host:
     - python
     - pip >=18.1
