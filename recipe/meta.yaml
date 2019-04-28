@@ -25,6 +25,7 @@ requirements:
     - enum34 >=1.1.6  # [py27]
     - futures >=3.0.5  # [py27]
   run:
+    - python
     - {{ pin_compatible('google-api-core-grpc') }}
     - enum34  # [py27]
     - futures  # [py27]
