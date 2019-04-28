@@ -10,20 +10,22 @@ source:
   sha256: 566834ef43e79917b112e3bd2848e84cfb0f4d7b565581607e2548f5c8e5d87a
 
 build:
-  number: 1
-  script: "{{ PYTHON }} -m pip install . --no-deps  --ignore-installed --verbose"
+  number: 2
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --verbose"
+  skip: True  # [win and vc<14]
 
 requirements:
   host:
-    - python >=2.7
+    - python
     - pip >=18.1
     - google-api-core-grpc >=1.6.0
-    - enum34 >=1.1.6  # [py2k]
-    - futures >=3.0.5  # [py2k]
+    - enum34 >=1.1.6  # [py27]
+    - futures >=3.0.5  # [py27]
   run:
-    - google-api-core-grpc
-    - enum34  # [py2k]
-    - futures  # [py2k]
+    - python
+    - {{ pin_compatible('google-api-core-grpc') }}
+    - enum34  # [py27]
+    - futures  # [py27]
 
 test:
   imports:
@@ -76,8 +78,9 @@ about:
 
     **Deprecated Python Versions**
 
-    Python == 2.7. Python 2.7 support will be removed on January 1, 2020.
-
+    Python == 2.7
+    - Python 2.7 support will be removed on January 1, 2020.
+    - protobuf does not support Visual C++ 2008, windows py27 package not available
 
   doc_url: https://googleapis.github.io/google-cloud-python/latest/container/index.html
   dev_url: https://github.com/googleapis/google-cloud-python/tree/master/container
