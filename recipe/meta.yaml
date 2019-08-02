@@ -52,6 +52,7 @@ about:
   home: https://github.com/googleapis/google-cloud-python/tree/master/container
   license: Apache 2.0
   license_family: APACHE
+  license_file: LICENSE
   summary: 'Google Container Engine API client library'
   description: |
     **Python Client for Google Kubernetes Engine API**
