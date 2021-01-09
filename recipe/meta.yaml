@@ -1,91 +1,47 @@
 {% set name = "google-cloud-container" %}
-{% set version = "0.3.0" %}
+{% set version = "2.3.0" %}
+
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 90cceceb487f1f4f2336b3674d594bc5e492fadbe27a5f06ca056d7148fd90ba
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/google-cloud-container-{{ version }}.tar.gz
+  sha256: 0dcd8084dd55c0439ff065d3fb206e2e5c695d3a25effd774b74f8ce43afc911
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --verbose"
-  skip: True  # [win and vc<14]
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python
-    - pip >=18.1
-    - google-api-core-grpc >=1.6.0
-    - enum34 >=1.1.6  # [py27]
-    - futures >=3.0.5  # [py27]
+    - pip
+    - python >=3.6
   run:
-    - python
-    - {{ pin_compatible('google-api-core-grpc') }}
-    - enum34  # [py27]
-    - futures  # [py27]
+    - google-api-core >=1.21.2,<2.0.0dev
+    - grpc-google-iam-v1 >=0.12.3,<0.13dev
+    - libcst >=0.2.5
+    - proto-plus >=1.4.0
+    - python >=3.6
 
 test:
   imports:
-    - enum
-    - google.api
-    - google.api.annotations_pb2
-    - google.api.http_pb2
-    - google.api_core.gapic_v1.client_info
-    - google.api_core.gapic_v1.config
-    - google.api_core.gapic_v1.method
-    - google.api_core.grpc_helpers
-    - google.api_core.protobuf_helpers
+    - google
     - google.cloud
-    - google.cloud.container_v1
-    - google.cloud.container_v1.proto
-    - google.oauth2
-    - google.oauth2.service_account
-    - google.protobuf
-    - google.protobuf.empty_pb2
-    - grpc
-    - requests
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
-  home: https://github.com/googleapis/google-cloud-python/tree/master/container
-  license: Apache 2.0
-  license_family: APACHE
+  home: https://github.com/googleapis/python-container
+  summary: Google Container Engine API client library
+  license: Apache-2.0
   license_file: LICENSE
-  summary: 'Google Container Engine API client library'
-  description: |
-    **Python Client for Google Kubernetes Engine API**
-
-    [Google Kubernetes Engine API](https://cloud.google.com/kubernetes-engine): The Google Kubernetes Engine API is used for
-    building and managing container based applications, powered by the open source
-    Kubernetes technology.
-
-    - [Client Library Documentation](https://googleapis.github.io/google-cloud-python/latest/container/index.html)
-    - [Product Documentation](https://cloud.google.com/kubernetes-engine)
-
-    **Quick Start**
-
-    In order to use this library, you first need to go through the following steps:
-
-    1. [Select or create a Cloud Platform project.](https://console.cloud.google.com/project)
-    2. [Enable billing for your project.](https://cloud.google.com/billing/docs/how-to/modify-project#enable_billing_for_a_project)
-    3. [Enable the Google Cloud Language API.](https://cloud.google.com/natural-language)
-    4. [Setup Authentication.](https://googleapis.github.io/google-cloud-python/latest/core/auth.html)
-
-    **Supported Python Versions**
-
-    Python >= 3.5
-
-    **Deprecated Python Versions**
-
-    Python == 2.7
-    - Python 2.7 support will be removed on January 1, 2020.
-    - protobuf does not support Visual C++ 2008, windows py27 package not available
-
-  doc_url: https://googleapis.github.io/google-cloud-python/latest/container/index.html
-  dev_url: https://github.com/googleapis/google-cloud-python/tree/master/container
 
 extra:
   recipe-maintainers:
     - BrentDorsey
+    - kyri-petrou
