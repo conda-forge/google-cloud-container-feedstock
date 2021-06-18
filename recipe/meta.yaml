@@ -1,5 +1,5 @@
 {% set name = "google-cloud-container" %}
-{% set version = "0.3.0" %}
+{% set version = "2.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 90cceceb487f1f4f2336b3674d594bc5e492fadbe27a5f06ca056d7148fd90ba
+  sha256: e7d93ca399dd6fb5fd0f99190248531c9c583d1a85e7cd2c9ee485495459ee78
 
 build:
-  number: 1
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --verbose"
-  skip: True  # [win and vc<14]
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --verbose
+  skip: true  # [win and vc<14]
 
 requirements:
   host:
@@ -53,7 +53,7 @@ about:
   license: Apache 2.0
   license_family: APACHE
   license_file: LICENSE
-  summary: 'Google Container Engine API client library'
+  summary: Google Container Engine API client library
   description: |
     **Python Client for Google Kubernetes Engine API**
 
