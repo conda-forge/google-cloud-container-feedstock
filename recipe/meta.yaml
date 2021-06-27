@@ -16,42 +16,30 @@ build:
 
 requirements:
   host:
-    - python
+    - python >=3.6
     - pip >=18.1
-    - google-api-core-grpc >=1.6.0
-    - enum34 >=1.1.6  # [py27]
-    - futures >=3.0.5  # [py27]
+    - google-api-core-grpc >=1.22.2,<2.0.0dev
+    - grpc-google-iam-v1 >=0.12.3,<0.13dev
+    - proto-plus >=1.4.0
+    - packaging >=14.3
   run:
-    - python
-    - {{ pin_compatible('google-api-core-grpc') }}
-    - enum34  # [py27]
-    - futures  # [py27]
+    - python >=3.6
+    - google-api-core-grpc
+    - grpc-google-iam-v1
+    - proto-plus
+    - packaging
 
 test:
   imports:
-    - enum
-    - google.api
-    - google.api.annotations_pb2
-    - google.api.http_pb2
-    - google.api_core.gapic_v1.client_info
-    - google.api_core.gapic_v1.config
-    - google.api_core.gapic_v1.method
-    - google.api_core.grpc_helpers
-    - google.api_core.protobuf_helpers
-    - google.cloud
+    - google.cloud.container
     - google.cloud.container_v1
-    - google.cloud.container_v1.proto
-    - google.oauth2
-    - google.oauth2.service_account
-    - google.protobuf
-    - google.protobuf.empty_pb2
+    - google.cloud.container_v1beta1
     - grpc
-    - requests
 
 about:
-  home: https://github.com/googleapis/google-cloud-python/tree/master/container
+  home: https://github.com/googleapis/python-container
   license: Apache 2.0
-  license_family: APACHE
+  license_family: Apache
   license_file: LICENSE
   summary: Google Container Engine API client library
   description: |
@@ -61,7 +49,7 @@ about:
     building and managing container based applications, powered by the open source
     Kubernetes technology.
 
-    - [Client Library Documentation](https://googleapis.github.io/google-cloud-python/latest/container/index.html)
+    - [Client Library Documentation](https://googleapis.dev/python/container/latest/index.html)
     - [Product Documentation](https://cloud.google.com/kubernetes-engine)
 
     **Quick Start**
@@ -83,8 +71,8 @@ about:
     - Python 2.7 support will be removed on January 1, 2020.
     - protobuf does not support Visual C++ 2008, windows py27 package not available
 
-  doc_url: https://googleapis.github.io/google-cloud-python/latest/container/index.html
-  dev_url: https://github.com/googleapis/google-cloud-python/tree/master/container
+  doc_url: https://googleapis.dev/python/container/latest/index.html
+  dev_url: https://github.com/googleapis/python-container
 
 extra:
   recipe-maintainers:
