@@ -76,5 +76,6 @@ about:
 
 extra:
   recipe-maintainers:
+    - xylar
     - BrentDorsey
     - parthea
