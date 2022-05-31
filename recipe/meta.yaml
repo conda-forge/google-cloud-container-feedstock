@@ -10,24 +10,19 @@ source:
   sha256: 237a1895d8fdd79181097e552c4651a864bb8cc1d66ac406548be3e741144cae
 
 build:
-  number: 0
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - python >=3.6
-    - pip >=18.1
-    - google-api-core-grpc >=1.26.0,<3.0.0dev
-    - grpc-google-iam-v1 >=0.12.3,<0.13dev
-    - proto-plus >=1.4.0
-    - packaging >=14.3
+    - pip
   run:
     - python >=3.6
-    - google-api-core-grpc
-    - grpc-google-iam-v1
-    - proto-plus
-    - packaging
+    - google-api-core-grpc >=1.31.5,<3.0.0dev,!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0
+    - grpc-google-iam-v1 >=0.12.3,<0.13dev
+    - proto-plus >=1.15.0
 
 test:
   imports:
@@ -35,6 +30,10 @@ test:
     - google.cloud.container_v1
     - google.cloud.container_v1beta1
     - grpc
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/googleapis/python-container
