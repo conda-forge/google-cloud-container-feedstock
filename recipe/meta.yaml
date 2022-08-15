@@ -1,5 +1,5 @@
 {% set name = "google-cloud-container" %}
-{% set version = "2.11.1" %}
+{% set version = "2.11.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 2952cce32b5087cdbad0961dde8be209ab6d7d96bbddee69e5d35740c8112904
+  sha256: 19890ed603da105b6529166a6adc0590f6706fdaebe368e6cd2cff4b55285abb
 
 build:
   number: 0
