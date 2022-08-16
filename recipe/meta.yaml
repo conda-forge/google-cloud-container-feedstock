@@ -1,5 +1,5 @@
 {% set name = "google-cloud-container" %}
-{% set version = "2.11.1" %}
+{% set version = "2.11.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 2952cce32b5087cdbad0961dde8be209ab6d7d96bbddee69e5d35740c8112904
+  sha256: 19890ed603da105b6529166a6adc0590f6706fdaebe368e6cd2cff4b55285abb
 
 build:
   number: 0
@@ -22,8 +22,8 @@ requirements:
     - python >=3.7
     - google-api-core-grpc >=1.32.0,<3.0.0dev,!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,!=2.4.*,!=2.5.*,!=2.6.*,!=2.7.*
     - grpc-google-iam-v1 >=0.12.4,<0.13dev
-    - proto-plus >=1.15.0,<2.0.0dev
-    - protobuf >=3.19.0,<4.0.0dev
+    - proto-plus >=1.22.0,<2.0.0dev
+    - protobuf >=3.19.0,<5.0.0dev
 
 test:
   imports:
