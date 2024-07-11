@@ -9,37 +9,13 @@ Package license: Apache-2.0
 
 Summary: Google Cloud Container API client library
 
-Development: https://github.com/googleapis/python-container
+Development: https://github.com/googleapis/google-cloud-python/tree/main/packages/google-cloud-container
 
 Documentation: https://googleapis.dev/python/container/latest/index.html
 
-**Python Client for Google Kubernetes Engine API**
+**Python Client for Kubernetes Engine**
 
-[Google Kubernetes Engine API](https://cloud.google.com/kubernetes-engine): The Google Kubernetes Engine API is used for
-building and managing container based applications, powered by the open source
-Kubernetes technology.
-
-- [Client Library Documentation](https://googleapis.dev/python/container/latest/index.html)
-- [Product Documentation](https://cloud.google.com/kubernetes-engine)
-
-**Quick Start**
-
-In order to use this library, you first need to go through the following steps:
-
-1. [Select or create a Cloud Platform project.](https://console.cloud.google.com/project)
-2. [Enable billing for your project.](https://cloud.google.com/billing/docs/how-to/modify-project#enable_billing_for_a_project)
-3. [Enable the Google Cloud Language API.](https://cloud.google.com/natural-language)
-4. [Setup Authentication.](https://googleapis.github.io/google-cloud-python/latest/core/auth.html)
-
-**Supported Python Versions**
-
-Python >= 3.5
-
-**Deprecated Python Versions**
-
-Python == 2.7
-- Python 2.7 support will be removed on January 1, 2020.
-- protobuf does not support Visual C++ 2008, windows py27 package not available
+Kubernetes Engine: The Google Kubernetes Engine API is used for building and managing container based applications, powered by the open source Kubernetes technology.
 
 
 Current build status
