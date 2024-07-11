@@ -1,5 +1,5 @@
 {% set name = "google-cloud-container" %}
-{% set version = "2.47.1" %}
+{% set version = "2.48.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/google-cloud-container-{{ version }}.tar.gz
-  sha256: d9d2fe5e3dfbbc545243ec844ad551348a7f09e65d40ae9538fa5cc466001251
+  sha256: ab205965fda7887837920140a27159f671262abf4f72490f33f6b41ab73e99e5
 
 build:
   noarch: python
@@ -44,36 +44,12 @@ about:
   license_family: Apache
   license_file: LICENSE
   description: |
-    **Python Client for Google Kubernetes Engine API**
+    **Python Client for Kubernetes Engine**
 
-    [Google Kubernetes Engine API](https://cloud.google.com/kubernetes-engine): The Google Kubernetes Engine API is used for
-    building and managing container based applications, powered by the open source
-    Kubernetes technology.
-
-    - [Client Library Documentation](https://googleapis.dev/python/container/latest/index.html)
-    - [Product Documentation](https://cloud.google.com/kubernetes-engine)
-
-    **Quick Start**
-
-    In order to use this library, you first need to go through the following steps:
-
-    1. [Select or create a Cloud Platform project.](https://console.cloud.google.com/project)
-    2. [Enable billing for your project.](https://cloud.google.com/billing/docs/how-to/modify-project#enable_billing_for_a_project)
-    3. [Enable the Google Cloud Language API.](https://cloud.google.com/natural-language)
-    4. [Setup Authentication.](https://googleapis.github.io/google-cloud-python/latest/core/auth.html)
-
-    **Supported Python Versions**
-
-    Python >= 3.5
-
-    **Deprecated Python Versions**
-
-    Python == 2.7
-    - Python 2.7 support will be removed on January 1, 2020.
-    - protobuf does not support Visual C++ 2008, windows py27 package not available
+    Kubernetes Engine: The Google Kubernetes Engine API is used for building and managing container based applications, powered by the open source Kubernetes technology.
 
   doc_url: https://googleapis.dev/python/container/latest/index.html
-  dev_url: https://github.com/googleapis/python-container
+  dev_url: https://github.com/googleapis/google-cloud-python/tree/main/packages/google-cloud-container
 
 extra:
   recipe-maintainers:
