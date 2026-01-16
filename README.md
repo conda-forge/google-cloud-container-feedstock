@@ -17,7 +17,6 @@ Documentation: https://googleapis.dev/python/container/latest/index.html
 
 Kubernetes Engine: The Google Kubernetes Engine API is used for building and managing container based applications, powered by the open source Kubernetes technology.
 
-
 Current build status
 ====================
 
