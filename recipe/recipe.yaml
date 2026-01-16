@@ -1,27 +1,30 @@
-{% set name = "google-cloud-container" %}
-{% set version = "2.61.0" %}
+schema_version: 1
+
+context:
+  name: google-cloud-container
+  version: 2.61.0
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/google_cloud_container-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/google_cloud_container-${{ version }}.tar.gz
   sha256: 9a491b4fbc9b3fb6e3368f1f08fa3caec5c6cf0f16a0387b976612fb90893abf
 
 build:
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python ${{ python_min }}.*
     - pip
     - setuptools
   run:
     # excluding python 3.14 for now because we don't have the required grpcio on conda-forge
-    - python >={{ python_min }},<3.14
+    - python >=${{ python_min }},<3.14
     - google-api-core >=1.34.1,<3.0.0,!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,!=2.4.*,!=2.5.*,!=2.6.*,!=2.7.*,!=2.8.*,!=2.9.*,!=2.10.*
     - google-api-core-grpc
     - google-auth >=2.14.1,<3.0.0,!=2.24.0,!=2.25.0
@@ -31,31 +34,33 @@ requirements:
     - proto-plus >=1.25.0,<2.0.0
     - protobuf >=3.20.2,<7.0.0,!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5
 
-test:
-  imports:
-    - google.cloud.container
-    - google.cloud.container_v1
-    - google.cloud.container_v1beta1
-    - grpc
-  commands:
-    - pip check
-  requires:
-    - python {{ python_min }}
-    - pip
+tests:
+  - python:
+      imports:
+        - google.cloud.container
+        - google.cloud.container_v1
+        - google.cloud.container_v1beta1
+        - grpc
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - python ${{ python_min }}.*
+        - pip
+    script:
+      - pip check
 
 about:
-  home: https://github.com/googleapis/google-cloud-python/tree/main/packages/google-cloud-container
   summary: Google Cloud Container API client library
   license: Apache-2.0
-  license_family: Apache
   license_file: LICENSE
   description: |
     **Python Client for Kubernetes Engine**
 
     Kubernetes Engine: The Google Kubernetes Engine API is used for building and managing container based applications, powered by the open source Kubernetes technology.
 
-  doc_url: https://googleapis.dev/python/container/latest/index.html
-  dev_url: https://github.com/googleapis/google-cloud-python/tree/main/packages/google-cloud-container
+  homepage: https://github.com/googleapis/google-cloud-python/tree/main/packages/google-cloud-container
+  repository: https://github.com/googleapis/google-cloud-python/tree/main/packages/google-cloud-container
+  documentation: https://googleapis.dev/python/container/latest/index.html
 
 extra:
   recipe-maintainers:
