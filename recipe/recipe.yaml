@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: google-cloud-container
-  version: 2.61.0
+  version: "2.62.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/google_cloud_container-${{ version }}.tar.gz
-  sha256: 9a491b4fbc9b3fb6e3368f1f08fa3caec5c6cf0f16a0387b976612fb90893abf
+  sha256: 3bae3b270deff640f53e7d2768fbc03ffbf3531a886560fb9e4f7b55146cd53f
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
