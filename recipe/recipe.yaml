@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: google-cloud-container
-  version: "2.63.0"
+  version: "2.64.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/google_cloud_container-${{ version }}.tar.gz
-  sha256: 6d634073cfd01623639b6b2e5b9b9cc34ae2075121bf88c136e440bb6a3a2f87
+  sha256: b41593e189f25d4c5a5b5f796669c1e4384ba0a25f6b298f64b556915b1e374d
 
 build:
   number: 0
@@ -23,16 +23,15 @@ requirements:
     - pip
     - setuptools
   run:
-    # excluding python 3.14 for now because we don't have the required grpcio on conda-forge
-    - python >=${{ python_min }},<3.14
-    - google-api-core >=1.34.1,<3.0.0,!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,!=2.4.*,!=2.5.*,!=2.6.*,!=2.7.*,!=2.8.*,!=2.9.*,!=2.10.*
+    - python >=${{ python_min }}
+    - google-api-core >=2.11.0,<3.0.0
     - google-api-core-grpc
     - google-auth >=2.14.1,<3.0.0,!=2.24.0,!=2.25.0
-    # using looser constraint because we can't support the python >=3.14 constraint
-    - grpcio >=1.33.2,<2.0.0
-    # more restrictive version for python 3.13
+    # more restrictive constraint for python >=3.14
+    - grpcio >=1.75.1,<2.0.0
+    # more restrictive constraint for python >=3.13
     - proto-plus >=1.25.0,<2.0.0
-    - protobuf >=3.20.2,<7.0.0,!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5
+    - protobuf >=4.25.8,<8.0.0
 
 tests:
   - python:
@@ -42,12 +41,7 @@ tests:
         - google.cloud.container_v1beta1
         - grpc
       python_version: ${{ python_min }}.*
-  - requirements:
-      run:
-        - python ${{ python_min }}.*
-        - pip
-    script:
-      - pip check
+      pip_check: true
 
 about:
   summary: Google Cloud Container API client library
