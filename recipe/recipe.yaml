@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: google-cloud-container
-  version: "2.64.0"
+  version: "2.65.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/google_cloud_container-${{ version }}.tar.gz
-  sha256: b41593e189f25d4c5a5b5f796669c1e4384ba0a25f6b298f64b556915b1e374d
+  sha256: 67605d396a188ebd02cd73a425503667ea2f5bc56b17571a9a678b7d55b734dc
 
 build:
   number: 0
@@ -24,7 +24,7 @@ requirements:
     - setuptools
   run:
     - python >=${{ python_min }}
-    - google-api-core >=2.11.0,<3.0.0
+    - google-api-core >=2.17.1,<3.0.0
     - google-api-core-grpc
     - google-auth >=2.14.1,<3.0.0,!=2.24.0,!=2.25.0
     # more restrictive constraint for python >=3.14
