@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: google-cloud-container
-  version: "2.66.0"
+  version: "2.67.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/google_cloud_container-${{ version }}.tar.gz
-  sha256: c022a2ed5371e1169ce2b947462eb8d51d4ccd3028c621ef699428b766be0cdc
+  sha256: 7277535fffd7fb4e97c7a94373c1b123d0c7fae678e108dec5d7ced72182c6a5
 
 build:
   number: 0
